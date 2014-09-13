@@ -1,0 +1,26 @@
+
+%h1 All Movies
+
+= form_tag movies_path, :method => :get do
+  Include:
+  - @all_ratings.each do |rating|
+    = rating
+    = check_box_tag "ratings[#{rating}]", 1, @selected_ratings.include?("#{rating}")
+  = submit_tag 'Refresh' 
+
+%table#movies
+  %thead
+    %tr
+      %th= sortable "title", "Movie Title"
+      %th= sortable "rating"
+      %th= sortable "release_date", "Release Date"
+      %th More Info
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.title
+        %td= movie.rating
+        %td= movie.release_date.strftime("%B %d, %Y")
+        %td= link_to "More about #{movie.title}", movie_path(movie)
+
+= link_to 'Add new movie', new_movie_path

@@ -62,3 +62,21 @@ form label {
   font-weight: bold;
   color: maroon;
 }
+a#logo {
+  font-size: 200%;
+  color:  #a90000 ;
+  font-style: normal;
+  text-decoration: none;
+}
+th .current {
+  padding-right: 12px;
+  background-color: yellow;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.asc {
+  background-image: url(/assets/up_arrow.png);
+}
+.desc {
+  background-image: url(/assets/down_arrow.png);
+}
